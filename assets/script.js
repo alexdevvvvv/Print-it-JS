@@ -66,12 +66,26 @@ function updateSlide(index) {
 // Ajout des event listeners sur les flèches
 arrowLeft.addEventListener('click', function() {
 	console.log('Clic sur la flèche gauche');
-	currentSlideIndex--;
+	
+	// Si on est à la première slide, on va à la dernière
+	if (currentSlideIndex === 0) {
+		currentSlideIndex = slides.length - 1;
+	} else {
+		currentSlideIndex--;
+	}
+	
 	updateSlide(currentSlideIndex);
 });
 
 arrowRight.addEventListener('click', function() {
 	console.log('Clic sur la flèche droite');
-	currentSlideIndex++;
+	
+	// Si on est à la dernière slide, on va à la première
+	if (currentSlideIndex === slides.length - 1) {
+		currentSlideIndex = 0;
+	} else {
+		currentSlideIndex++;
+	}
+	
 	updateSlide(currentSlideIndex);
 });
