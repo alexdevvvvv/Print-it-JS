@@ -21,6 +21,22 @@ const slides = [
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 
+// Récupération du conteneur des dots
+const dotsContainer = document.querySelector('.dots');
+
+// Génération des bullet points
+for (let i = 0; i < slides.length; i++) {
+	const dot = document.createElement('div');
+	dot.classList.add('dot');
+	
+	// Le premier dot est sélectionné par défaut
+	if (i === 0) {
+		dot.classList.add('dot_selected');
+	}
+	
+	dotsContainer.appendChild(dot);
+}
+
 // Ajout des event listeners sur les flèches
 arrowLeft.addEventListener('click', function() {
 	console.log('Clic sur la flèche gauche');
